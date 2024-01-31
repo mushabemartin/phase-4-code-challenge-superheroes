@@ -1,27 +1,24 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-function Home() {
-  const [heros, setHeros] = useState([]);
-
-  useEffect(() => {
-    fetch("/heroes")
-      .then((r) => r.json())
-      .then(setHeros);
-  }, []);
-
+const Home = () => {
   return (
-    <section>
-      <h2>All Heroes</h2>
-      <ul>
-        {heros.map((hero) => (
-          <li key={hero.id}>
-            <Link to={`/heroes/${hero.id}`}>{hero.super_name}</Link>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <>
+      <section className="home" id="home">
+        <div className="content">
+          <h3>
+            fresh <span>food in the </span>morning
+          </h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat
+            labore, sint cupiditate distinctio tempora reiciendis.
+          </p>
+          <a href="#" className="btn">
+            get yours now
+          </a>
+        </div>
+      </section>
+    </>
   );
-}
+};
 
 export default Home;
